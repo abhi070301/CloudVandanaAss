@@ -1,25 +1,36 @@
 Question 1 - Take a sentence as an input and reverse every word in that sentence
 Sol - 
-var string = "This is a sunny day";
-
-//reverse string
-var reverseallstrings = reverseWord(string,"");
-console.log(reverseallstrings);
-
-var output = reverseWord(reverseallstrings," ");
-console.log(output);
-
-function reverseWord(string,separator){
-  return string.split(separator).reverse().join(separator);
+ function reverse1(str){
+  var a = "";
+  for(var i = 0; i <= str.length/2; i++){
+    a = str[i];
+    str[i] = str[str.length-i-1];
+    str[str.length-i-1] = a;
+  }
+  return str;
 }
+var str = "This is a sunny day";
+reverse1(str);
+console.log(str);
 
-Question 2 - Perform sorting of an array in descending order.
-const arr1 = [24.6,23.7,18.9,76.5];  
-  
-function arrSort(arr) { 
-    arr.sort((a,b)=>a-b); 
-    arr.reverse(); 
-    return arr; 
-} 
-  
-console.log(arrSort(arr1)); 
+Question 2 - Perform sorting of an array in descending order. 
+Sol-
+function bubbleSort(array) {
+  var done = false;
+  while (!done) {
+    done = true;
+    for (var i = 1; i < array.length; i += 1) {
+      if (array[i - 1] > array[i]) {
+        done = false;
+        var tmp = array[i - 1];
+        array[i - 1] = array[i];
+        array[i] = tmp;
+      }
+    }
+  }
+
+  return array;
+}
+var numbers = [24.6,23.7,18.9,76.5];
+bubbleSort(numbers);
+console.log(numbers);
